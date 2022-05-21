@@ -1,0 +1,186 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>集合 - 标签 -</title><link>https://nathanielgnef.github.io/tags/%E9%9B%86%E5%90%88/</link><description>集合 - 标签 -</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>aquilah@aliyun.com (NathanielGnef)</managingEditor><webMaster>aquilah@aliyun.com (NathanielGnef)</webMaster><lastBuildDate>Thu, 28 Apr 2022 10:43:40 +0800</lastBuildDate><atom:link href="https://nathanielgnef.github.io/tags/%E9%9B%86%E5%90%88/" rel="self" type="application/rss+xml"/><item><title>9.集合Set</title><link>https://nathanielgnef.github.io/posts/9.%E9%9B%86%E5%90%88set/</link><pubDate>Thu, 28 Apr 2022 10:43:40 +0800</pubDate><author>aquilah@aliyun.com (NathanielGnef)</author><guid>https://nathanielgnef.github.io/posts/9.%E9%9B%86%E5%90%88set/</guid><description><![CDATA[<p>Python 3 中有两种内置集合类型，set 和 frozenset</p>
+<h2 id="集合set">集合Set</h2>
+<p>格式：</p>
+<ul>
+<li>使用花括号：<code>{value01,value02,...}</code></li>
+<li>使用集合推导式：<code>{c for c in 'abracadabra' if c not in 'abc'}</code></li>
+<li>使用类型构造器：<code>set()</code>，<code>set(iterable)</code></li>
+</ul>
+<p>补充说明：</p>
+<ul>
+<li>
+<p>集合中的重复元素会被删除</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">set1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>集合中的元素数据类型可以不相同，但必须是可哈希的(hashable)</p>
+<ul>
+<li>可哈希的(hashable)：不可变，如字符串、元组等，不能对元素修改</li>
+<li>不可哈希的(unhashable)：可变，如列表、字典等，能对元素修改</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">set1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>集合是无序的，不支持索引、切片</p>
+</li>
+<li>
+<p>集合是不可哈希的(unhashable)，无法成为其他集合的元素，能对元素进行修改</p>
+</li>
+</ul>
+<h3 id="迭代">迭代</h3>
+<p>格式：<code>for x in {1,2,3}:print(x,end=&quot; &quot;)</code></p>
+<h3 id="运算符">运算符</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">-</span> <span class="n">other</span> <span class="o">-</span> <span class="o">...</span>           <span class="c1">#返回一个新集合，其中包含原集合中在 others 指定的其他集合中不存在的元素</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">|</span> <span class="n">other</span> <span class="o">|</span> <span class="o">...</span>           <span class="c1">#返回一个新集合，其中包含来自原集合以及 others 指定的所有集合中的元素</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">&amp;</span> <span class="n">other</span> <span class="o">&amp;</span> <span class="o">...</span>           <span class="c1">#返回一个新集合，其中包含原集合以及 others 指定的所有集合中共有的元素</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">^</span> <span class="n">other</span>                 <span class="c1">#返回一个新集合，其中的元素或属于原集合或属于 other 指定的其他集合，但不能同时属于两者</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">&lt;=</span> <span class="n">other</span>                <span class="c1">#检测是否集合中的每个元素都在 other 之中</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">&lt;</span> <span class="n">other</span>                 <span class="c1">#检测集合是否为 other 的真子集，即 set &lt;= other and set != other</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">&gt;=</span> <span class="n">other</span>                <span class="c1">#检测是否 other 中的每个元素都在集合之中</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> <span class="o">&gt;</span> <span class="n">other</span>                 <span class="c1">#检测集合是否为 other 的真超集，即 set &gt;= other and set != other</span>
+</span></span><span class="line"><span class="cl">    <span class="ow">in</span>                          <span class="c1">#成员运算符，如果集合中包含给定的值返回 True</span>
+</span></span><span class="line"><span class="cl">    <span class="ow">not</span> <span class="ow">in</span>                      <span class="c1">#成员运算符，如果集合中不包含给定的值返回 True</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;abracadabra&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;alacazam&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="支持set的函数">支持Set的函数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="nb">len</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>                   <span class="c1">#返回Set1的元素个数</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">max</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>                   <span class="c1">#返回Set1的元素最大值</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">min</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>                   <span class="c1">#返回Set1的元素最小值</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>               <span class="c1">#将可迭代对象iterable转换为Set，并返回该Set</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="set的方法">Set的方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>                                     <span class="c1">#添加一个元素到集合中，如果该元素已经存在，则不进行操作</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>                                         <span class="c1">#清空集合</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>                                          <span class="c1">#返回集合的复制</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span><span class="n">iterable</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>             <span class="c1">#返回该集合中不存在于其他可迭代对象iterable中的元素的集合</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">difference_update</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span><span class="n">iterable</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>      <span class="c1">#移除该集合中存在于其他可迭代对象iterable中的元素</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>                                 <span class="c1">#删除该集合中的对象object，如果该集合中不存在对象object，则不进行操作</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span><span class="n">iterable</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>           <span class="c1">#返回该集合与其他可迭代对象iterable的交集，如果参数有Str，则交集为空集</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">intersection_update</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span><span class="n">iterable</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>    <span class="c1">#使用该集合与其他可迭代对象iterable的交集更新该集合</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>                            <span class="c1">#如果该集合与可迭代对象iterable的交集为空返回True，否则返回False</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>                              <span class="c1">#如果该集合是可迭代对象iterable的子集，返回True，否则返回False</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>                            <span class="c1">#如果该集合是可迭代对象iterable的超集，返回True，否则返回False</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                                           <span class="c1">#删除一个元素</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>                                  <span class="c1">#删除该集合中的一个对象object，如果不存在该对象，则报错KeyError</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>                  <span class="c1">#返回该集合与可迭代对象iterable不同时存在的元素的集合</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">symmetric_difference_update</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>           <span class="c1">#使用该集合与可迭代对象iterable不同时存在的元素的集合更新该集合</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span><span class="n">iterable</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>                  <span class="c1">#返回该集合与其他可迭代对象iterable的并集</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span><span class="n">iterable</span><span class="p">,</span><span class="o">...</span><span class="p">])</span>                 <span class="c1">#使用该集合与其他可迭代对象iterable的并集更新该集合</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"></code></pre></td></tr></table>
+</div>
+</div><h2 id="冻结集合frozenset">冻结集合Frozenset</h2>
+<p>格式：</p>
+<ul>
+<li>使用类型构造器：<code>frozenset()</code>，<code>forzenset(iterable)</code></li>
+</ul>
+<p>补充说明：</p>
+<ul>
+<li>冻结集合是可哈希的(hashable)，可以成为其他集合的元素，不能对元素进行修改</li>
+</ul>
+]]></description></item></channel></rss>

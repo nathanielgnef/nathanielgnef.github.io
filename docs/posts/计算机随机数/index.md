@@ -1,12 +1,5 @@
----
-title: "计算机随机数"
-date: 2022-04-28T11:25:40+08:00
-draft: false
-math: true
-keywords: ["随机数"]
-tags: ["随机数"]
-categories: ["Computer Science"]
----
+# 计算机随机数
+
 
 计算机中，随机数都是由**随机数生成器(Random Number Generator)** 生成的
 ## 伪随机数(Pseudo-Random Number)

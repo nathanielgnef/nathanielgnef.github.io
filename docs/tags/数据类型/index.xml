@@ -1,0 +1,92 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>数据类型 - 标签 -</title><link>https://nathanielgnef.github.io/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link><description>数据类型 - 标签 -</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>aquilah@aliyun.com (NathanielGnef)</managingEditor><webMaster>aquilah@aliyun.com (NathanielGnef)</webMaster><lastBuildDate>Thu, 28 Apr 2022 10:23:52 +0800</lastBuildDate><atom:link href="https://nathanielgnef.github.io/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="self" type="application/rss+xml"/><item><title>4.基本数据类型</title><link>https://nathanielgnef.github.io/posts/4.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link><pubDate>Thu, 28 Apr 2022 10:23:52 +0800</pubDate><author>aquilah@aliyun.com (NathanielGnef)</author><guid>https://nathanielgnef.github.io/posts/4.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid><description><![CDATA[<h2 id="变量">变量</h2>
+<p>Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建<br>
+在 Python 中，变量没有类型，我们所说的&quot;类型&quot;是变量所指的内存中对象的类型</p>
+<h2 id="标准数据类型">标准数据类型</h2>
+<p>不可变数据：</p>
+<ul>
+<li>Number（数字）</li>
+<li>String（字符串）</li>
+<li>Tuple（元组）</li>
+</ul>
+<p>可变数据：</p>
+<ul>
+<li>List（列表）</li>
+<li>Set（集合）</li>
+<li>Dictionary（字典）</li>
+</ul>
+<p>如果改变数据类型的值，将重新分配内存空间</p>
+<h2 id="判断数据类型">判断数据类型</h2>
+<p><code>type()</code>：<br>
+语法：</p>
+<ol>
+<li><code>type(object)</code></li>
+<li><code>type(name, bases, dict, **kwds)</code></li>
+</ol>
+<p>用法：https://docs.python.org/3/library/functions.html#type</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="mi">4</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt; &lt;class &#39;</span><span class="nb">float</span><span class="s1">&#39;&gt; &lt;class &#39;</span><span class="nb">bool</span><span class="s1">&#39;&gt; &lt;class &#39;</span><span class="nb">complex</span><span class="s1">&#39;&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>isinstance()</code>：<br>
+语法：<code>isinstance(object,classinfo)</code><br>
+用法：https://docs.python.org/3/library/functions.html#isinstance</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">111</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">True</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>isinstance()</code>和<code>type()</code>的区别在于：</p>
+<ul>
+<li><code>type()</code>不会认为子类是一种父类类型，不考虑继承关系</li>
+<li><code>isinstance()</code>会认为子类是一种父类类型，考虑继承关系</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>     <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>     <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">A</span><span class="p">(),</span> <span class="n">A</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">())</span> <span class="o">==</span> <span class="n">A</span> 
+</span></span><span class="line"><span class="cl">    <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">B</span><span class="p">(),</span> <span class="n">A</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">B</span><span class="p">())</span> <span class="o">==</span> <span class="n">A</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">False</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>
