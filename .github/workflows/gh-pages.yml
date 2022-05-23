@@ -7,22 +7,27 @@ on:
   pull_request:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
+          submodules: true
+          fetch-depth: 0
+          
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2.5.0
         with:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
-        run: hugo --minify
+      - name: Build Page
+        env:
+          HUGO_OEMBED_ACCESSTOKEN: ${{ secrets.HUGO_OEMBED_ACCESSTOKEN }}
+          HUGO_VSSUE_CLIENTSECRET: ${{ secrets.HUGO_VSSUE_CLIENTSECRET }}
+        run: |
+            npm install
+            npm run buildtest
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.8.0
