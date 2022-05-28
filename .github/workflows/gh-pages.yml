@@ -22,7 +22,7 @@ jobs:
           extended: true
 
       - name: Build Page
-        run: hugo --minify
+        run: rm -f -r docs && hugo --gc --minify && git add docs && git commit -S -s -m 'docs: Re-generate fixes'
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.8.0
